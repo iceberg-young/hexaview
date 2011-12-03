@@ -11,9 +11,10 @@
 			#hexa, #text {position:absolute; padding:1em; border:3px double #EEE;}
 			#hexa {right:50%; text-align:right;}
 			#text {left:50%; text-align:left;}
-			code {margin:2px; border:1px dashed #EEE;}
+			code {margin:2px; border:1px dashed #EEE; color:#951;}
 			code:nth-child(4n+1) {color:#159;}
-			code:nth-child(16n+16):after {content:' ';}
+			code:nth-child(16n+16):after {content:'* '; font-size:0;}
+			code.pad {background-color:#EEE;}
 		</style>
 	</head>
 	<body>
@@ -59,6 +60,12 @@
 					$('<code title="' + code + '">&nbsp;' + hexaChar + '&nbsp;</code>').appendTo(hexaBox);
 					var realChar = (32 < code && 127 > code) ? content[i] : '&nbsp;';
 					$('<code title="0x' + hexaChar + '">&nbsp;&nbsp;' + realChar + '&nbsp;</code>').appendTo(textBox);
+				}
+				var padding = 16 - content.length % 16;
+				if (16 != padding) {
+					for (var j = 0; j < padding; ++j) {
+						$('<code class="pad">&nbsp;&nbsp;&nbsp;&nbsp;</code>').appendTo(hexaBox).clone().appendTo(textBox);
+					}
 				}
 			};
 
