@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Hexa Viewer</title>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<style>
 			* {margin:0; padding:0;}
 			#tool {text-align:center; margin:1em;}
@@ -30,9 +30,9 @@
 
 			/// Bytes per page
 			var OFFSET = 512;
-			// <! slice() method hasn't standardized !>
+			/// <! The new slice() method hasn't been standardized !>
 			var SLICER = 'webkitSlice' in File.prototype ? 'webkitSlice' : 'mozSlice';
-			// File object
+			/// File object
 			var file;
 			/// FileReader object
 			var reader = new FileReader();
